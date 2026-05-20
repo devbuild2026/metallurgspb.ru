@@ -1,0 +1,136 @@
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/InterTight-Light.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/InterTight-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/InterTight-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/InterTight-ExtraBold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Mobile Design System ─────────────────────────────── */
+
+/* Mobile body text — 14px unified */
+@media (max-width: 639px) {
+  .prose p, .prose li,
+  .text-gray-600, .text-gray-700, .text-gray-500 {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
+
+/* Scroll hint for horizontal scroll areas */
+@keyframes scrollHint {
+  0%, 100% { transform: translateX(0); opacity: 0.5; }
+  50% { transform: translateX(12px); opacity: 1; }
+}
+@keyframes scrollFade {
+  0% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+.scroll-hint {
+  animation: scrollFade 4s ease-out forwards;
+}
+.scroll-hint-arrow {
+  animation: scrollHint 1.5s ease-in-out 3;
+}
+
+/* Hide scrollbar but allow scroll */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #1a1a1a;
+  background: #ffffff;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .animate-slide-in {
+    animation: slideIn 0.25s ease-out;
+  }
+}
+
+/* Dual range slider — track captures no events, only thumbs do */
+.price-range-thumb {
+  pointer-events: none;
+}
+.price-range-thumb::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  pointer-events: all;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #CC0000;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+  cursor: grab;
+  transition: transform 0.1s;
+}
+.price-range-thumb::-webkit-slider-thumb:active {
+  cursor: grabbing;
+  transform: scale(1.15);
+}
+.price-range-thumb::-moz-range-thumb {
+  pointer-events: all;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #CC0000;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+  cursor: grab;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

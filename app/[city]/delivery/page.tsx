@@ -65,7 +65,7 @@ export default function CityDeliveryPage({ params }: Props) {
         </section>
 
         <section className="bg-white rounded-2xl p-6 sm:p-8 mb-8 shadow-sm border border-gray-100">
-          <h2 className="text-2xl sm:text-3xl font-black text-[#1a1a1a] mb-5">Зоны и\u00a0сроки доставки</h2>
+          <h2 className="text-2xl sm:text-3xl font-black text-[#1a1a1a] mb-5">Зоны и&nbsp;сроки доставки</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {zones.map((item) => (
               <article key={item.zone} className="border border-gray-100 rounded-xl p-5 bg-[#fafafa]">
@@ -93,7 +93,7 @@ export default function CityDeliveryPage({ params }: Props) {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
-            Найти на\u00a0карте
+            Найти на&nbsp;карте
           </a>
         </section>
       </div>

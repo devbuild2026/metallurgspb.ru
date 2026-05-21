@@ -72,13 +72,13 @@ export default function CityPaymentPage({ params }: Props) {
         </section>
 
         <section className="bg-white rounded-2xl p-6 sm:p-8 mb-8 border border-gray-100 shadow-sm">
-          <h2 className="text-2xl sm:text-3xl font-black text-[#1a1a1a] mb-4">Оплата и\u00a0доставка {city.in}</h2>
+          <h2 className="text-2xl sm:text-3xl font-black text-[#1a1a1a] mb-4">Оплата и&nbsp;доставка {city.in}</h2>
           <p className="text-gray-600 leading-relaxed">{content.deliveryPaymentNote}</p>
         </section>
 
         <section className="bg-[#1a1a1a] text-white rounded-2xl p-6 sm:p-8">
-          <h2 className="text-2xl font-black mb-3">Контакты для\u00a0оплаты</h2>
-          <p className="text-gray-300 mb-4">По\u00a0вопросам счетов, договоров и\u00a0оплаты свяжитесь с\u00a0менеджером:</p>
+          <h2 className="text-2xl font-black mb-3">Контакты для&nbsp;оплаты</h2>
+          <p className="text-gray-300 mb-4">По&nbsp;вопросам счетов, договоров и&nbsp;оплаты свяжитесь с&nbsp;менеджером:</p>
           <a href={`tel:${city.phone}`} className="text-xl font-bold text-white hover:text-[#CC0000] transition-colors">
             {city.phoneFormatted}
           </a>

@@ -126,7 +126,7 @@ export default function HomePageContent({ city, cityPrefix = '' }: Props) {
   const deliveryBlock = (
     <section key="delivery" className="py-12 sm:py-20 lg:py-24">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="relative bg-[#1a1a1a] rounded-2xl overflow-hidden" style={{ minHeight: '280px' }}>
+        <div className="relative bg-[#1a1a1a] rounded-2xl overflow-hidden" style={{ minHeight: '320px' }}>
           <div className="relative z-10 w-full lg:w-[55%] p-5 sm:p-8 lg:p-10 text-white">
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-black mb-4 text-balance">Доставка {city.by} и&nbsp;Ленинградской области</h2>
             <p className="text-gray-300 leading-relaxed mb-6">{unique.text}</p>
@@ -144,8 +144,8 @@ export default function HomePageContent({ city, cityPrefix = '' }: Props) {
               ))}
             </ul>
           </div>
-          <div className="absolute bottom-0 right-0 w-[45%] hidden lg:block">
-            <Image src="/images/delivery/car.png" alt="Доставка металлопроката" width={700} height={400} className="w-full h-auto object-contain object-left-bottom" />
+          <div className="absolute bottom-0 right-0 w-[52%] hidden lg:block">
+            <Image src="/images/delivery/car.png?v=2" alt="Доставка металлопроката" width={900} height={514} className="w-full h-auto object-contain object-left-bottom" />
           </div>
         </div>
       </div>

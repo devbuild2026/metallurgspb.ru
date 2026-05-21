@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getCityBySlug, getCityAboutContent } from '@/lib/cities';
+import { polishHeroTitle } from '@/lib/typography';
 
 interface Props {
   params: { city: string };
@@ -62,7 +63,7 @@ export default function CityAboutPage({ params }: Props) {
           <span className="text-[#1a1a1a]">О компании</span>
         </nav>
         <div className="mb-10">
-          <h1 className="text-3xl sm:text-4xl font-black text-[#1a1a1a] mb-3">О компании Металлург — {city.name}</h1>
+          <h1 className="text-3xl sm:text-4xl font-black text-[#1a1a1a] mb-3 text-balance [overflow-wrap:normal]">{polishHeroTitle(`О компании Металлург — ${city.name}`)}</h1>
           <p className="text-gray-600 max-w-3xl leading-relaxed">{content.intro}</p>
         </div>
 

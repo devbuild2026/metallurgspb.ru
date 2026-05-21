@@ -8,6 +8,7 @@ import PriceRangeSlider from '@/components/ui/PriceRangeSlider';
 import type { Category, CategoryGroup } from '@/data/categories';
 import type { Product } from '@/data/products';
 import { useCart } from '@/components/cart/CartProvider';
+import { polishHeroTitle } from '@/lib/typography';
 
 interface Props {
   category?: Category;
@@ -282,7 +283,7 @@ export default function CategoryCatalogView({ category, group, categoryGroups, p
               )}
               <div className="flex-1">
                 <p className="text-sm text-[#CC0000] font-semibold mb-1">{pageSubtitle}</p>
-                <h1 className="text-xl sm:text-2xl lg:text-3xl font-black text-[#1a1a1a] mb-2">{pageTitle}</h1>
+                <h1 className="text-xl sm:text-2xl lg:text-3xl font-black text-[#1a1a1a] mb-2 text-balance [overflow-wrap:normal]">{polishHeroTitle(pageTitle)}</h1>
                 <p className="text-gray-500 text-sm leading-relaxed">
                   {group
                     ? `${group.name} ${cityIn} — широкий ассортимент в\u00a0наличии на\u00a0складе. Доставка ${cityBy} — ${deliveryTime}. Менеджеры помогут подобрать нужную позицию.`

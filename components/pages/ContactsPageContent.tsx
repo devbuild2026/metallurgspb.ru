@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import type { City } from '@/lib/cities';
 import { sendLead } from '@/lib/sendLead';
+import { polishHeroTitle } from '@/lib/typography';
 
 const requisites = [
   ['Полное наименование', 'ООО «Металлург»'],
@@ -34,7 +35,7 @@ export default function ContactsPageContent({ city, cityPrefix = '' }: Props) {
           <span className="text-[#1a1a1a]">Контакты</span>
         </nav>
 
-        <h1 className="text-3xl sm:text-4xl font-black text-[#1a1a1a] mb-10">Контакты {city.in}</h1>
+        <h1 className="text-3xl sm:text-4xl font-black text-[#1a1a1a] mb-10 text-balance [overflow-wrap:normal]">{polishHeroTitle(`Контакты ${city.in}`)}</h1>
 
         {/* Contact cards */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">

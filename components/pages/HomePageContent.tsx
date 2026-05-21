@@ -11,6 +11,7 @@ import PopularProductsTabs from '@/components/PopularProductsTabs';
 import ReviewsBlock from '@/components/ReviewsBlock';
 import CallbackForm from '@/components/CallbackForm';
 import FaqAccordion from '@/components/FaqAccordion';
+import { polishHeroTitle } from '@/lib/typography';
 
 const ADV_ICONS = [
   <svg key="i0" className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>,
@@ -47,7 +48,7 @@ export default function HomePageContent({ city, cityPrefix = '' }: Props) {
             {hero.badge}
           </div>
           <h1 className="text-[28px] sm:text-4xl lg:text-5xl font-black leading-[1.15] mb-4 sm:mb-6 text-balance">
-            <span className="text-white" style={{ wordBreak: 'keep-all' }}>{hero.title} </span>
+            <span className="text-white">{polishHeroTitle(hero.title)} </span>
             <br className="hidden sm:block" />
             <span className="inline-flex items-center bg-white/90 backdrop-blur-sm text-[#CC0000] text-[20px] sm:text-[30px] lg:text-[38px] font-bold px-5 sm:px-7 py-2 sm:py-3 rounded-full mt-2 sm:mt-3 whitespace-nowrap leading-none">{hero.utp}</span>
           </h1>

@@ -3,6 +3,7 @@ import { categoryGroups } from '@/data/categories';
 import { products } from '@/data/products';
 import CategoryCard from '@/components/CategoryCard';
 import type { City } from '@/lib/cities';
+import { polishHeroTitle } from '@/lib/typography';
 
 const BASE_URL = 'https://metallurgspb.ru';
 
@@ -35,8 +36,8 @@ export default function CatalogPageContent({ city, cityPrefix = '' }: Props) {
       </nav>
 
       <div className="mb-10">
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#1a1a1a] text-balance">
-          Каталог металлопроката {city.in}
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#1a1a1a] text-balance [overflow-wrap:normal]">
+          {polishHeroTitle(`Каталог металлопроката ${city.in}`)}
         </h1>
         <p className="text-gray-500 mt-2">
           {categoryGroups.length} групп · {products.length} позиций

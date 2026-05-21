@@ -8,6 +8,7 @@ import ProductCard from '@/components/ProductCard';
 import ProductTabs from '@/components/ProductTabs';
 import OrderControls from '@/components/OrderControls';
 import FaqAccordion from '@/components/FaqAccordion';
+import { polishHeroTitle } from '@/lib/typography';
 
 interface Props {
   slug: string;
@@ -116,8 +117,8 @@ export default function ProductPageContent({ slug, cityPrefix = '', cityName, ci
         </div>
 
         <div className="flex-1 min-w-0">
-          <h1 className="text-[22px] sm:text-2xl lg:text-3xl font-black text-[#1a1a1a] mb-2 leading-tight text-balance">
-            {product.name}{cityName ? ` ${cityName}` : ''}
+          <h1 className="text-[22px] sm:text-2xl lg:text-3xl font-black text-[#1a1a1a] mb-2 leading-tight text-balance [overflow-wrap:normal]">
+            {polishHeroTitle(`${product.name}${cityName ? ` ${cityName}` : ''}`)}
           </h1>
           <p className="text-xs sm:text-sm text-gray-400 mb-4 sm:mb-5">
             Артикул: <span className="font-mono text-gray-500">{product.slug}</span>

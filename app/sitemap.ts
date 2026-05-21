@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { categoryGroups, categories } from '@/data/categories';
 import { products } from '@/data/products';
 import { cities } from '@/lib/cities';
+import { SITE_INDEXABLE } from '@/lib/seo';
 
 const BASE_URL = 'https://metallurgspb.ru';
 // Стабильная дата — обновлять при реальных изменениях контента
@@ -13,6 +14,9 @@ const staticSlugs = ['catalog', 'delivery', 'about', 'payment', 'contacts'] as c
 const cityStaticSlugs = ['catalog', 'delivery', 'about', 'payment', 'contacts'] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  // Индексация запрещена флагом SITE_INDEXABLE → отдаём пустой sitemap.
+  if (!SITE_INDEXABLE) return [];
+
   const entries: MetadataRoute.Sitemap = [];
 
   // ── Главная ────────────────────────────────────────────────

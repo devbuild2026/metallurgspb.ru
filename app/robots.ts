@@ -1,10 +1,13 @@
 import type { MetadataRoute } from 'next';
+import { SITE_INDEXABLE } from '@/lib/seo';
 
 export default function robots(): MetadataRoute.Robots {
   const siteUrl = 'https://metallurgspb.ru';
 
-  // Preview/staging — закрыть всё от индексации
-  if (process.env.VERCEL_ENV && process.env.VERCEL_ENV !== 'production') {
+  // Индексация запрещена централизованным флагом SITE_INDEXABLE (lib/seo.ts)
+  // или это preview/staging-окружение → закрыть ВЕСЬ сайт.
+  const isPreview = !!process.env.VERCEL_ENV && process.env.VERCEL_ENV !== 'production';
+  if (!SITE_INDEXABLE || isPreview) {
     return {
       rules: { userAgent: '*', disallow: '/' },
     };

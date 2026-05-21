@@ -6,6 +6,7 @@ import { CartProvider } from '@/components/cart/CartProvider';
 import CartPopup from '@/components/cart/CartPopup';
 import FloatingPopup from '@/components/FloatingPopup';
 import CityDetector from '@/components/CityDetector';
+import { ROBOTS_METADATA } from '@/lib/seo';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://metallurgspb.ru'),
@@ -15,17 +16,8 @@ export const metadata: Metadata = {
   },
   description: 'Продажа металлопроката в Санкт-Петербурге и Ленинградской области. Арматура, трубы, листовой прокат, швеллер, уголок.',
   keywords: ['металлопрокат', 'арматура', 'трубы', 'швеллер', 'уголок', 'листовой прокат', 'купить металл', 'Санкт-Петербург'],
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
+  // Глобальный robots: index/noindex управляется флагом SITE_INDEXABLE (lib/seo.ts)
+  robots: ROBOTS_METADATA,
   openGraph: {
     type: 'website',
     locale: 'ru_RU',

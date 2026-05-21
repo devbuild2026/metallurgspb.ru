@@ -9,6 +9,7 @@ import ProductTabs from '@/components/ProductTabs';
 import OrderControls from '@/components/OrderControls';
 import FaqAccordion from '@/components/FaqAccordion';
 import { polishHeroTitle } from '@/lib/typography';
+import { getProductSpecs, getMaterial } from '@/lib/specifications';
 
 interface Props {
   slug: string;
@@ -23,6 +24,10 @@ export default function ProductPageContent({ slug, cityPrefix = '', cityName, ci
 
   const city: City = (citySlug ? getCityBySlug(citySlug) : undefined) ?? defaultCity;
   const category = getCategoryBySlug(product.categorySlug);
+
+  // Динамические характеристики — вычисляются на сервере (SSR-visible + structured data)
+  const specs = getProductSpecs(product, category);
+  const material = getMaterial(specs);
 
   const description = `${product.name} — качественный металлопрокат, производимый в\u00a0соответствии с\u00a0требованиями ГОСТ. Поставляется со\u00a0склада в\u00a0Санкт-Петербурге с\u00a0доставкой ${city.by}. Сроки — ${city.deliveryTime}.`;
 
@@ -52,6 +57,14 @@ export default function ProductPageContent({ slug, cityPrefix = '', cityName, ci
       name: 'Металлург',
     },
     category: category?.parentName ?? 'Металлопрокат',
+    ...(material ? { material } : {}),
+    ...(product.size && product.size !== '—' ? { size: product.size } : {}),
+    // Характеристики в structured data (Google видит весь спецификационный контент)
+    additionalProperty: specs.map((s) => ({
+      '@type': 'PropertyValue',
+      name: s.label,
+      value: s.value,
+    })),
     offers: {
       '@type': 'Offer',
       url: pageUrl,
@@ -142,7 +155,7 @@ export default function ProductPageContent({ slug, cityPrefix = '', cityName, ci
 
       {/* Tabs */}
       <div className="bg-white border border-gray-100 rounded-2xl p-6 sm:p-8 mb-12">
-        <ProductTabs productName={product.name} cityIn={city.in} />
+        <ProductTabs productName={product.name} cityIn={city.in} specs={specs} />
       </div>
 
       {/* FAQ */}

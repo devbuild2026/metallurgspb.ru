@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Контакты Металлург в Санкт-Петербурге — адрес, телефон, email',
   description: 'Контактные данные компании Металлург. Адрес склада, телефон, email. Металлопрокат оптом и в розницу в Санкт-Петербурге.',
   alternates: { canonical: 'https://metallurgspb.ru/contacts' },
-  openGraph: {
+  openGraph: { images: ['/og-image.jpg'],
     title: 'Контакты — Металлург',
     description: 'Адрес, телефон и email компании Металлург в Санкт-Петербурге.',
   },

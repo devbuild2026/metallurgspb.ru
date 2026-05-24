@@ -29,7 +29,7 @@ export default function CatalogPageContent({ city, cityPrefix = '' }: Props) {
   return (
     <div className="max-w-7xl mx-auto px-4 py-8 sm:py-16 lg:py-24">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <nav className="text-sm text-gray-400 mb-6 flex items-center gap-2">
+      <nav className="text-sm text-gray-500 mb-6 flex items-center gap-2">
         <Link href={`${cityPrefix}/`} className="hover:text-[#CC0000] transition-colors">Главная</Link>
         <span>/</span>
         <span className="text-[#1a1a1a]">Каталог</span>

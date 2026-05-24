@@ -40,7 +40,7 @@ export default function HomePageContent({ city, cityPrefix = '' }: Props) {
   /* ── 1. HERO ─────────────────────────────────────────────── */
   const heroBlock = (
     <section key="hero" className="relative bg-[#1a1a1a] text-white py-14 sm:py-20 lg:py-28 overflow-hidden">
-      <Image src="/images/background/background1.png" alt={`Металлопрокат ${city.in} — склад Металлург`} fill priority sizes="100vw" className="object-cover object-center" />
+      <Image src="/images/background/background1.webp" alt={`Металлопрокат ${city.in} — склад Металлург`} fill priority sizes="100vw" className="object-cover object-center" />
       <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.80), rgba(0,0,0,0.30))' }} />
       <div className="relative max-w-7xl mx-auto px-4">
         <div className="max-w-3xl">
@@ -102,7 +102,7 @@ export default function HomePageContent({ city, cityPrefix = '' }: Props) {
                 </div>
                 <div className="p-3 text-center">
                   <div className="font-semibold text-[#1a1a1a] text-sm group-hover:text-[#CC0000] transition-colors leading-snug">{group.name}</div>
-                  <div className="text-xs text-gray-400 mt-0.5">{group.count} позиций</div>
+                  <div className="text-xs text-gray-500 mt-0.5">{group.count} позиций</div>
                 </div>
               </Link>
             );
@@ -145,7 +145,7 @@ export default function HomePageContent({ city, cityPrefix = '' }: Props) {
             </ul>
           </div>
           <div className="absolute bottom-0 right-0 w-[52%] hidden lg:block">
-            <Image src="/images/delivery/car.png?v=2" alt="Доставка металлопроката" width={900} height={514} className="w-full h-auto object-contain object-left-bottom" />
+            <Image src="/images/delivery/car.webp" alt="Доставка металлопроката собственным автопарком" width={900} height={514} className="w-full h-auto object-contain object-left-bottom" />
           </div>
         </div>
       </div>

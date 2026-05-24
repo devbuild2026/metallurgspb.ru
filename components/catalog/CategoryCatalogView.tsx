@@ -142,7 +142,7 @@ export default function CategoryCatalogView({ category, group, categoryGroups, p
   return (
     <div className="max-w-7xl mx-auto px-4 py-10">
       {/* Breadcrumbs */}
-      <nav className="text-sm text-gray-400 mb-6 flex items-center gap-2 flex-wrap">
+      <nav className="text-sm text-gray-500 mb-6 flex items-center gap-2 flex-wrap">
         <Link href={`${cityPrefix}/`} className="hover:text-[#CC0000] transition-colors">Главная</Link>
         <span>/</span>
         <Link href={`${cityPrefix}/catalog`} className="hover:text-[#CC0000] transition-colors">Каталог</Link>
@@ -347,7 +347,7 @@ export default function CategoryCatalogView({ category, group, categoryGroups, p
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
-                <span className="text-xs text-gray-400">
+                <span className="text-xs text-gray-500">
                   {filteredProducts.length} из {baseProducts.length} позиций
                 </span>
               </div>
@@ -403,7 +403,7 @@ export default function CategoryCatalogView({ category, group, categoryGroups, p
 
           {/* ─── Products table ─── */}
           {products.length === 0 ? (
-            <div className="text-center py-20 text-gray-400 border border-gray-200 rounded-2xl bg-white">
+            <div className="text-center py-20 text-gray-500 border border-gray-200 rounded-2xl bg-white">
               <div className="text-5xl mb-4">📦</div>
               <p className="text-lg font-semibold mb-1">Товары добавляются</p>
               <p className="text-sm">Позвоните нам, чтобы уточнить наличие</p>

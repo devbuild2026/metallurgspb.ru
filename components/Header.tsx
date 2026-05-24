@@ -237,6 +237,7 @@ export default function Header() {
               className="lg:hidden p-2.5 sm:p-2 rounded text-[#1a1a1a]"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Меню"
+              aria-expanded={menuOpen}
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {menuOpen ? (

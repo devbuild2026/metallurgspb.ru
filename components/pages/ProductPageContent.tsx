@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { getProductBySlug, getProductsByCategory } from '@/data/products';
 import { getCategoryBySlug } from '@/data/categories';
+import { getProductImage } from '@/data/categoryImages';
 import { defaultCity, getCityBySlug, getProductFaq, type City } from '@/lib/cities';
 import ProductCard from '@/components/ProductCard';
 import ProductTabs from '@/components/ProductTabs';
@@ -43,7 +44,9 @@ export default function ProductPageContent({ slug, cityPrefix = '', cityName, ci
   const baseUrl = 'https://metallurgspb.ru';
   const pageUrl = cityPrefix ? `${baseUrl}${cityPrefix}/product/${slug}` : `${baseUrl}/product/${slug}`;
 
-  const productImage = `${baseUrl}/images/product-placeholder.png`;
+  // Фото товара = изображение его категории (с откатом на группу/placeholder)
+  const productImagePath = getProductImage(product.categorySlug, category?.parentSlug);
+  const productImage = `${baseUrl}${productImagePath}`;
 
   const productSchema = {
     '@context': 'https://schema.org',
@@ -99,7 +102,7 @@ export default function ProductPageContent({ slug, cityPrefix = '', cityName, ci
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Breadcrumbs */}
-      <nav className="text-xs sm:text-sm text-gray-400 mb-6 sm:mb-8 flex items-center gap-1.5 sm:gap-2 flex-wrap">
+      <nav className="text-xs sm:text-sm text-gray-500 mb-6 sm:mb-8 flex items-center gap-1.5 sm:gap-2 flex-wrap">
         <Link href={`${cityPrefix}/`} className="hover:text-[#CC0000] transition-colors">Главная</Link>
         <span>/</span>
         <Link href={`${cityPrefix}/catalog`} className="hover:text-[#CC0000] transition-colors">Каталог</Link>
@@ -120,11 +123,12 @@ export default function ProductPageContent({ slug, cityPrefix = '', cityName, ci
         <div className="flex-shrink-0 lg:w-[400px]">
           <div className="w-full lg:w-[400px] h-[300px] bg-[#f0f0f0] rounded-2xl overflow-hidden border border-gray-200 flex items-center justify-center">
             <Image
-              src="/images/product-placeholder.png"
+              src={productImagePath}
               alt={`${product.name}${cityName ? ` ${cityName}` : ''} — Металлург`}
               width={400}
               height={300}
-              className="object-contain p-8 opacity-30"
+              sizes="(max-width: 1024px) 100vw, 400px"
+              className="w-full h-full object-contain p-6"
             />
           </div>
         </div>
@@ -133,7 +137,7 @@ export default function ProductPageContent({ slug, cityPrefix = '', cityName, ci
           <h1 className="text-[22px] sm:text-2xl lg:text-3xl font-black text-[#1a1a1a] mb-2 leading-tight text-balance [overflow-wrap:normal]">
             {polishHeroTitle(`${product.name}${cityName ? ` ${cityName}` : ''}`)}
           </h1>
-          <p className="text-xs sm:text-sm text-gray-400 mb-4 sm:mb-5">
+          <p className="text-xs sm:text-sm text-gray-500 mb-4 sm:mb-5">
             Артикул: <span className="font-mono text-gray-500">{product.slug}</span>
           </p>
           <div className="mb-4">
@@ -141,7 +145,7 @@ export default function ProductPageContent({ slug, cityPrefix = '', cityName, ci
             <span className="text-gray-500 text-sm ml-2">за&nbsp;{product.unit}</span>
           </div>
           <div className="inline-flex items-center gap-2 bg-[#f5f5f5] rounded-lg px-4 py-2 mb-6">
-            <span className="text-xs text-gray-400">Размер / вес:</span>
+            <span className="text-xs text-gray-500">Размер / вес:</span>
             <span className="font-semibold text-sm text-[#1a1a1a]">{product.size}</span>
           </div>
           <OrderControls productId={product.id} slug={product.slug} name={product.name} price={product.price} unit={product.unit} size={product.size} />

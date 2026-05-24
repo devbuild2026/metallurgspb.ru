@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { inter } from './fonts';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { CartProvider } from '@/components/cart/CartProvider';
@@ -22,13 +23,13 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'ru_RU',
     siteName: 'Металлург',
-    images: [{ url: '/images/logo/main_logo.png', width: 400, height: 120, alt: 'Металлург — металлопрокат' }],
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Металлург — металлопрокат в Санкт-Петербурге и Ленинградской области' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Металлург — металлопрокат оптом и в розницу',
     description: 'Продажа металлопроката в Санкт-Петербурге и ЛО.',
-    images: ['/images/logo/main_logo.png'],
+    images: ['/og-image.jpg'],
   },
   icons: {
     icon: [
@@ -70,7 +71,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ru">
+    <html lang="ru" className={inter.className}>
       <body className="bg-white text-[#1a1a1a]">
         <script
           type="application/ld+json"

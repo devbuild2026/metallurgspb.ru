@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `Контакты Металлург ${city.in} — адрес, телефон, email`,
     description: `Контактные данные Металлург ${city.in}. Адрес склада, телефон, email. Металлопрокат оптом и в розницу.`,
     alternates: { canonical: `https://metallurgspb.ru/${params.city}/contacts` },
-    openGraph: {
+    openGraph: { images: ['/og-image.jpg'],
       title: `Контакты Металлург ${city.in}`,
       description: `Адрес, телефон и email Металлург ${city.in}.`,
     },

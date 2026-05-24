@@ -11,10 +11,10 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const city = getCityBySlug(params.city)!;
   return {
-    title: `Доставка металлопроката ${city.in} — сроки и условия | Металлург`,
+    title: `Доставка металлопроката ${city.in} — сроки и условия`,
     description: `Условия доставки металлопроката ${city.by} и Ленинградской области. Собственный автопарк, отгрузка ${city.deliveryTime}.`,
     alternates: { canonical: `https://metallurgspb.ru/${params.city}/delivery` },
-    openGraph: {
+    openGraph: { images: ['/og-image.jpg'],
       title: `Доставка металлопроката ${city.in} — Металлург`,
       description: `Быстрая доставка металлопроката ${city.by}. Отгрузка ${city.deliveryTime}.`,
     },

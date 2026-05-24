@@ -3,10 +3,10 @@ import { defaultCity } from '@/lib/cities';
 import CatalogPageContent from '@/components/pages/CatalogPageContent';
 
 export const metadata: Metadata = {
-  title: 'Каталог металлопроката в Санкт-Петербурге — цены, наличие | Металлург',
+  title: 'Каталог металлопроката в Санкт-Петербурге — цены, наличие',
   description: 'Полный каталог металлопроката: арматура, трубы, листовой прокат и др. Актуальные цены и наличие на складе в Санкт-Петербурге.',
   alternates: { canonical: 'https://metallurgspb.ru/catalog' },
-  openGraph: {
+  openGraph: { images: ['/og-image.jpg'],
     title: 'Каталог металлопроката — Металлург',
     description: 'Полный каталог металлопроката со склада в Санкт-Петербурге. Актуальные цены.',
   },

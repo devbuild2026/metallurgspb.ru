@@ -1,38 +1,20 @@
-@font-face {
-  font-family: 'Inter';
-  src: url('/fonts/InterTight-Light.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Inter';
-  src: url('/fonts/InterTight-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Inter';
-  src: url('/fonts/InterTight-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Inter';
-  src: url('/fonts/InterTight-ExtraBold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
+/* Шрифт Inter Tight подключается через next/font/local (app/fonts.ts).
+   Семейство применяется на <html> в app/layout.tsx (className inter). */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ── Доступность: видимый фокус для клавиатуры ────────────── */
+:focus-visible {
+  outline: 2px solid #CC0000;
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+/* Мышиный фокус не показываем (только клавиатурный через :focus-visible) */
+:focus:not(:focus-visible) {
+  outline: none;
+}
 
 /* ── Mobile Design System ─────────────────────────────── */
 
@@ -72,7 +54,6 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
   color: #1a1a1a;
   background: #ffffff;
 }

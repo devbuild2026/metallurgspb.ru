@@ -1,5 +1,7 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Product } from '@/data/products';
+import { getProductImage } from '@/data/categoryImages';
 
 interface Props {
   product: Product;
@@ -24,11 +26,13 @@ export default function ProductCard({ product, oldPrice, discount, cityPrefix = 
             Акция
           </span>
         )}
-        <div className="w-full h-full flex items-center justify-center">
-          <svg className="w-16 h-16 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-          </svg>
-        </div>
+        <Image
+          src={getProductImage(product.categorySlug)}
+          alt={product.name}
+          fill
+          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+          className="object-contain p-4"
+        />
       </Link>
 
       {/* Info */}
@@ -46,7 +50,7 @@ export default function ProductCard({ product, oldPrice, discount, cityPrefix = 
         <div className="mt-auto flex items-end justify-between gap-2">
           <div>
             {oldPrice && (
-              <div className="text-xs text-gray-400 line-through">{fmt(oldPrice)} ₽</div>
+              <div className="text-xs text-gray-500 line-through">{fmt(oldPrice)} ₽</div>
             )}
             <div className={`text-xl font-bold ${discount ? 'text-[#CC0000]' : 'text-[#1a1a1a]'}`}>
               {fmt(product.price)} ₽

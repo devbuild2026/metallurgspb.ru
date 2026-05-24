@@ -4,10 +4,10 @@ import DeliveryCalculator from '@/components/DeliveryCalculator';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Доставка металлопроката в Санкт-Петербурге — сроки и условия | Металлург',
+  title: 'Доставка металлопроката в Санкт-Петербурге — сроки и условия',
   description: 'Условия доставки металлопроката по Санкт-Петербургу, Ленинградской области и регионам России. Отгрузка в день заказа, собственный автопарк.',
   alternates: { canonical: 'https://metallurgspb.ru/delivery' },
-  openGraph: {
+  openGraph: { images: ['/og-image.jpg'],
     title: 'Доставка металлопроката — Металлург',
     description: 'Быстрая доставка металлопроката по СПб и ЛО. Отгрузка в день заказа.',
   },

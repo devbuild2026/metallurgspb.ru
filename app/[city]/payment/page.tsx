@@ -10,10 +10,10 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const city = getCityBySlug(params.city)!;
   return {
-    title: `Способы оплаты металлопроката ${city.in} — Металлург`,
+    title: `Способы оплаты металлопроката ${city.in}`,
     description: `Актуальные способы оплаты заказов металлопроката Металлург ${city.in}. Безнал, договор, наличные. Доставка ${city.deliveryTime}.`,
     alternates: { canonical: `https://metallurgspb.ru/${params.city}/payment` },
-    openGraph: {
+    openGraph: { images: ['/og-image.jpg'],
       title: `Способы оплаты — Металлург ${city.name}`,
       description: `Удобные способы оплаты металлопроката ${city.in}.`,
     },

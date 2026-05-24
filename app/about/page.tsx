@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: 'О компании Металлург — поставщик металлопроката в Санкт-Петербурге',
   description: 'История, ключевые цифры и команда компании Металлург. Поставщик металлопроката в Санкт-Петербурге и Ленинградской области с 2012 года.',
   alternates: { canonical: 'https://metallurgspb.ru/about' },
-  openGraph: {
+  openGraph: { images: ['/og-image.jpg'],
     title: 'О компании Металлург',
     description: 'Поставщик металлопроката в СПб и ЛО с 2012 года. 500+ товарных позиций.',
   },

@@ -2,10 +2,10 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Способы оплаты металлопроката — Металлург',
+  title: 'Способы оплаты металлопроката',
   description: 'Актуальные способы оплаты заказов металлопроката в компании Металлург. Безналичный расчёт, договор поставки, наличный расчёт.',
   alternates: { canonical: 'https://metallurgspb.ru/payment' },
-  openGraph: {
+  openGraph: { images: ['/og-image.jpg'],
     title: 'Способы оплаты — Металлург',
     description: 'Удобные способы оплаты металлопроката: безнал, договор, наличные.',
   },

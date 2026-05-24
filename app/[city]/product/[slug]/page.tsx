@@ -14,10 +14,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const product = getProductBySlug(params.slug);
   if (!product) return {};
   return {
-    title: `${product.name} — цена ${city.in} | Металлург`,
+    title: `${product.name} — цена ${city.in}`,
     description: `Купить ${product.name} ${city.in}. Характеристики, цена, доставка по России.`,
     alternates: { canonical: `https://metallurgspb.ru/${params.city}/product/${params.slug}` },
-    openGraph: {
+    openGraph: { images: ['/og-image.jpg'],
       title: `${product.name} ${city.in} — Металлург`,
       description: `Купить ${product.name} ${city.in}. Цена ${product.price.toLocaleString('ru-RU')} ₽ / ${product.unit}.`,
     },
